@@ -15,22 +15,24 @@ We run our experiments under the Ubuntu 18.04 GPU server, with Intel Xeon CPUs N
 
 Some out-of-distribution datasets we use are from torchvision, such as CIFARs. For the others we provide the download links here for convenient (and for reducing the size of this repository):
 
-* [Tiny-ImageNet](https://www.dropbox.com/s/kp3my3412u5k9rl/Imagenet_resize.tar.gz)
-* [LSUN](https://www.dropbox.com/s/moqh2wh8696c3yl/LSUN_resize.tar.gz)
-* [Textures](https://www.robots.ox.ac.uk/~vgg/data/dtd/)
-* [iSUN](https://www.dropbox.com/s/ssz7qxfqae0cca5/iSUN.tar.gz)
+* [Tiny-ImageNet](https://www.dropbox.com/s/kp3my3412u5k9rl/Imagenet_resize.tar.gz): The miniature of ImageNet dataset.
+* [LSUN](https://www.dropbox.com/s/moqh2wh8696c3yl/LSUN_resize.tar.gz): Large-scale scene images.
+* [Textures](https://www.robots.ox.ac.uk/~vgg/data/dtd/): Textural images in the wild.
+* [iSUN](https://www.dropbox.com/s/ssz7qxfqae0cca5/iSUN.tar.gz): Gaze traces on SUN dataset images.
 
 ## How to use
 
 ```bash
-# model: DenseNet, in-distribution: CIFAR-100, batch_size: 200
 $ cd CIFAR # or TinyImageNet, etc.
-$ python test_lsgm.py --method_name densenet_cifar100 --test_bs 200
+# model: DenseNet, in-distribution: CIFAR-100, batch_size: 200
+$ python test_lsgm.py --architecture densenet --dataset cifar100 --test_bs 200
+# model: ResNet, in-distribution: CIFAR-10, load the pre-trained model
+$ python test_lsgm.py --architecture resnet --dataset cifar100 --load=./checkpoint
 ```
 If successful, the script will test all OOD datasets with the given configuration.
 
 ## Experimental Result
 
-We provide the thorough experimental results as followed. We achieve the better performance compared to existing methods, which has been discussed in detail in our paper.
+We provide the thorough experimental results as followed, which are the average results of 5 times. We achieve the better performance compared to existing methods, which has been discussed in detail in our paper.
 
 ![image](./result.png)

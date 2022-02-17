@@ -20,7 +20,6 @@ if __package__ is None:
 
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
     from utils.display_results import show_performance, get_measures, print_measures, print_measures_with_std, print_tnr95
-    import utils.svhn_loader as svhn
     import utils.lsun_loader as lsun_loader
     from utils.godin_detector import godin_score
     from utils.deconfnet import DeconfNet, CosineDeconf, InnerDeconf, EuclideanDeconf
