@@ -1,6 +1,6 @@
 # Out-of-Distribution Detection via Probabilistic Graphical Model of Deep Neural Network Inference
 
-This repository contains the essential code, data, and pre-trained models for the paper *Out-of-Distribution Detection via Probabilistic Graphical Model of Deep Neural Network Inference*.
+This repository contains the essential code, data, and pre-trained models for the paper *Out-of-Distribution Detection via Probabilistic Graphical Model of Deep Neural Network Inference*. Some of the codes of baseline methods are adapted from [odin-pytorch](https://github.com/facebookresearch/odin), [deep_Mahalanobis_detector](https://github.com/pokaxpoka/deep_Mahalanobis_detector), [outlier-exposure](https://github.com/hendrycks/outlier-exposure) and [Generalized-ODIN-Implementation](https://github.com/guyera/Generalized-ODIN-Implementation).
 
 ## Preliminaries
 
@@ -11,6 +11,14 @@ We run our experiments under the Ubuntu 18.04 GPU server, with Intel Xeon CPUs N
 * [numpy](https://numpy.org/): Matrix manipulation.
 * [scipy](https://github.com/scipy/scipy): Statistics algorithms.
 
+## Pre-trained Models
+
+We provide the pre-trained models for both the DNN models and the LSGM models for reproduce. 
+
+We use the existing pre-trained models when possible, i.e. the ResNet and DenseNet for CIFAR are from [deep_Mahalanobis_detector](https://github.com/pokaxpoka/deep_Mahalanobis_detector). For the TinyImageNet dataset, we use the script and parameter from [outlier-exposure](https://github.com/hendrycks/outlier-exposure). And we also provide the Generalized-ODIN specific model, trained using code from [Generalized-ODIN-Implementation](https://github.com/guyera/Generalized-ODIN-Implementation). The mentioned models are saved to directory `godin_pretrained` and `pre_trained`.
+
+The LSGM models are in the `checkpoint` directory, which can be loaded easily with command line options.
+
 ## Out-of-Distribution Datasets
 
 Some out-of-distribution datasets we use are from torchvision, such as CIFARs. For the others we provide the download links here for convenient (and for reducing the size of this repository):
@@ -20,7 +28,7 @@ Some out-of-distribution datasets we use are from torchvision, such as CIFARs. F
 * [Textures](https://www.robots.ox.ac.uk/~vgg/data/dtd/): Textural images in the wild.
 * [iSUN](https://www.dropbox.com/s/ssz7qxfqae0cca5/iSUN.tar.gz): Gaze traces on SUN dataset images.
 
-## How to use
+## Running the Experiments
 
 ```bash
 $ cd CIFAR # or TinyImageNet, etc.
